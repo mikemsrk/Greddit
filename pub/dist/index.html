@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Greddit - Location sharing Reddit</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!--  Favicon -->
+    <link rel="icon" href="assets/favicon.png" type="image/png">
+
+    <!-- Custom CSS -->
+    <link href="css/landing-page.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- React App CSS & Google Maps -->
+    <link rel="stylesheet" href="main.css"/>
+    <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
+
+</head>
+
+<body>
+
+    <div id="landing">
+        <!-- Navigation -->
+        <nav class="navbar navbar-default navbar-fixed-top topnav" role="navigation">
+            <div class="container topnav">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand topnav" href="#">Greddit - Location sharing Reddit</a>
+                </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="#about">About</a>
+                        </li>
+                        <li>
+                            <a href="#features">Features</a>
+                        </li>
+                        <li>
+                            <a href="#team">Team</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container -->
+        </nav>
+
+
+        <!-- Header -->
+        <a name="about"></a>
+        <div class="intro-header">
+            <div class="container">
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="intro-message">
+                            <h1>Greddit</h1>
+                            <h3>Location sharing Reddit</h3>
+                            <hr class="intro-divider">
+                            <p> While browsing reddit, do you ever wonder where the stories are happening? </p>
+                            <p> With Greddit,</p>
+                            <p> You can share any location with your thread and develop a local community with our personalization and communication tools.</p>
+                            <button class="btn-success btn" id="goApp"> Try it </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- /.container -->
+
+        </div>
+        <!-- /.intro-header -->
+
+        <!-- Page Content -->
+
+    	<a  name="features"></a>
+        <div class="content-section-a">
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-5 col-sm-6">
+                        <hr class="section-heading-spacer">
+                        <div class="clearfix"></div>
+                        <h2 class="section-heading">Geolocation:</h2>
+                        <p class="lead">View threads on a map to see where the stories are happening.</p>
+                        <p> Any new stories in your area are immediately visible and accessible on the map.</p>
+                    </div>
+                    <div class="col-lg-5 col-lg-offset-2 col-sm-6">
+                        <img class="img-responsive img-thumbnail" src="img/map.png" alt="">
+                    </div>
+                </div>
+
+            </div>
+            <!-- /.container -->
+
+        </div>
+        <!-- /.content-section-a -->
+
+        <div class="content-section-b">
+
+            <div class="container">
+
+                <div class="row">
+                    <div class="col-lg-5 col-lg-offset-1 col-sm-push-6  col-sm-6">
+                        <hr class="section-heading-spacer">
+                        <div class="clearfix"></div>
+                        <h2 class="section-heading">Personalization<br></h2>
+                        <p class="lead">Rack up reputation points by posting quality threads and comments.</p>
+                        <p>Keep track of your popular threads and manage them in a single page.</p>
+                    </div>
+                    <div class="col-lg-5 col-sm-pull-6  col-sm-6">
+                        <img class="img-responsive img-thumbnail" src="img/profile.png" alt="">
+                    </div>
+                </div>
+
+            </div>
+            <!-- /.container -->
+
+        </div>
+        <!-- /.content-section-b -->
+
+        <div class="content-section-a">
+
+            <div class="container">
+
+                <div class="row">
+                    <div class="col-lg-5 col-sm-6">
+                        <hr class="section-heading-spacer">
+                        <div class="clearfix"></div>
+                        <h2 class="section-heading">Communication</h2>
+                        <p class="lead">Supports global/direct chat system and messaging & inbox.</p>
+                        <p>Send messages and chat with your friends.</p>
+                    </div>
+                    <div class="col-lg-5 col-lg-offset-2 col-sm-6">
+                        <img class="img-responsive img-thumbnail" src="img/chat.png" alt="">
+                    </div>
+                </div>
+
+            </div>
+            <!-- /.container -->
+
+        </div>
+        <!-- /.content-section-a -->
+
+        <!-- /.content-section-a -->
+
+        <div class="content-section-b">
+
+            <div class="container">
+
+                <div class="row">
+                    <div class="col-lg-5 col-lg-offset-1 col-sm-push-6  col-sm-6">
+                        <hr class="section-heading-spacer">
+                        <div class="clearfix"></div>
+                        <h2 class="section-heading">Trending<br></h2>
+                        <p class="lead">Tag your threads with a category and see which stories are currently trending.</p>
+                        <p>Tag information is also available on our map display.</p>
+                    </div>
+                    <div class="col-lg-5 col-sm-pull-6  col-sm-6">
+                        <img class="img-responsive img-thumbnail" src="img/trending.png" alt="">
+                    </div>
+                </div>
+
+            </div>
+            <!-- /.container -->
+
+        </div>
+        <!-- /.content-section-b -->
+        <div class="content-section-a">
+            <div class="container">
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="centered section-heading">Tech Stack<br></h2>
+
+                        <img class="img-responsive" src="img/stack.png" alt="">
+                    </div>
+                </div>
+
+            </div>
+            <!-- /.container -->
+
+        </div>
+        <!-- /.content-section-b -->
+
+        <!-- /.content-section-b -->
+        <a  name="team"></a>
+        <div class="content-section-b">
+            <div class="container">
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="centered section-heading">Team<br></h2>
+                    </div>
+                    <div class="col-lg-6 centered team">
+                        <h2>Mike Kim</h2>
+                        <hr class="intro-divider">
+                        <img class="img-responsive img-circle centered" src="https://avatars3.githubusercontent.com/u/10214595?v=3&s=460"></img>
+                        <h3>Software Engineer</h3>
+                        <a target="_blank" href="https://github.com/mikemsrk/"><i class="fa fa-github fa-fw"></i></a>
+                        <a target="_blank" href="https://www.linkedin.com/in/mikemsrk"><i class="fa fa-linkedin fa-fw"></i></a>
+
+                    </div>
+                    <div class="col-lg-6 centered team">
+                        <h2>Andrew Li</h2>
+                        <hr class="intro-divider">
+                        <img class="img-responsive img-circle centered" src="https://avatars1.githubusercontent.com/u/9782189?v=3&s=460"></img>
+                        <h3>Backend Engineer</h3>
+                        <a target="_blank" href="https://github.com/andrew-li"><i class="fa fa-github fa-fw"></i></a>
+                        <a target="_blank" href="https://www.linkedin.com/in/ali91007"><i class="fa fa-linkedin fa-fw"></i></a>
+                    </div>
+                </div>
+	
+		<div class="row">
+			<div class="col-lg-12 centered">
+				<p>With contributions from Peter Espe (testing) and Bryan Liu (feat. Friends).</p>
+			</div>
+		</div>
+
+            </div>
+            <!-- /.container -->
+
+        </div>
+        <!-- /.content-section-b -->
+
+        <!-- Footer -->
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <p class="copyright text-muted small">We created an open sourced version of this app under the name <a target="_blank" href="https://github.com/SacrificialGoat/Boilerplace">Boilerplace</a>.</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <!-- jQuery -->
+        <script src="js/jquery.js"></script>
+
+        <!-- Bootstrap Core JavaScript -->
+        <script src="js/bootstrap.min.js"></script>
+
+    <!-- //Landing Page -->
+    </div> 
+
+    <!-- React App View -->
+    <div id="app"></div>
+
+    <!-- React App -->
+    <script src="gmaps.js"></script>
+    <script src="app.js"></script>
+
+</body>
+
+</html>
