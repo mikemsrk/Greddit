@@ -1,9 +1,11 @@
-<!--![ScreenShot]()-->
+Test Application
+
+<!--[ScreenShot]()
 
 Fast, responsive location based forum application.
 Combines a quick & reliable Go web server with React/Flux client.
 
-<!--###[See Example](http://54.69.153.183:8080/)-->
+###[See Example](http://54.69.153.183:8080/)
 
 ##Features
 * Threads / Comments
@@ -41,3 +43,4 @@ Combines a quick & reliable Go web server with React/Flux client.
 
 1. In /pub, run 'gulp test'.
 2. Spec files are inside /specs.
+-->
