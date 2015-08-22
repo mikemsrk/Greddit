@@ -109,11 +109,13 @@ func recvMessages(w http.ResponseWriter, r *http.Request, db *sql.DB, store *ses
   )
 
   //change query based on option
-  var dbQuery string 
+  var dbQuery string
+
+  dbQuery = "select message_id, sender_id, u1.user_name as sender_name, recipient_id, u2.user_name as recipient_name, title, contents, messages.creation_time, messages.last_update_time from messages inner join users as u1 on messages.sender_id = u1.user_id inner join users as u2 on messages.recipient_id = u2.user_id"
 
   if option == 0 { //query by message id
 
-    dbQuery = "select message_id, sender_id, u1.user_name as sender_name, recipient_id, u2.user_name as recipient_name, title, contents, messages.creation_time, messages.last_update_time from messages inner join users as u1 on messages.sender_id = u1.user_id inner join users as u2 on messages.recipient_id = u2.user_id where message_id = " + strconv.Itoa(id)   
+    dbQuery += " where message_id = " + strconv.Itoa(id)   
  
   } else if option == 1 { //query by sender id
 
@@ -122,11 +124,11 @@ func recvMessages(w http.ResponseWriter, r *http.Request, db *sql.DB, store *ses
 
     if sortBy == 0 { //get by rating
 
-      dbQuery = "select message_id, sender_id, u1.user_name as sender_name, recipient_id, u2.user_name as recipient_name, title, contents, messages.creation_time, messages.last_update_time from messages inner join users as u1 on messages.sender_id = u1.user_id inner join users as u2 on messages.recipient_id = u2.user_id where sender_id = " + strconv.Itoa(id) + " order by creation_time desc"
+      dbQuery += " where sender_id = " + strconv.Itoa(id) + " order by creation_time desc"
 
     } else { //get by creation time
 
-      dbQuery = "select message_id, sender_id, u1.user_name as sender_name, recipient_id, u2.user_name as recipient_name, title, contents, messages.creation_time, messages.last_update_time from messages inner join users as u1 on messages.sender_id = u1.user_id inner join users as u2 on messages.recipient_id = u2.user_id where sender_id = " + strconv.Itoa(id) + " order by creation_time asc"
+      dbQuery += " where sender_id = " + strconv.Itoa(id) + " order by creation_time asc"
 
     }
 
@@ -145,11 +147,11 @@ func recvMessages(w http.ResponseWriter, r *http.Request, db *sql.DB, store *ses
 
     if sortBy == 0 { //get by rating
 
-      dbQuery = "select message_id, sender_id, u1.user_name as sender_name, recipient_id, u2.user_name as recipient_name, title, contents, messages.creation_time, messages.last_update_time from messages inner join users as u1 on messages.sender_id = u1.user_id inner join users as u2 on messages.recipient_id = u2.user_id where recipient_id = " + strconv.Itoa(id) + " order by creation_time desc"
+      dbQuery += " where recipient_id = " + strconv.Itoa(id) + " order by creation_time desc"
 
     } else { //get by creation time
 
-      dbQuery = "select message_id, sender_id, u1.user_name as sender_name, recipient_id, u2.user_name as recipient_name, title, contents, messages.creation_time, messages.last_update_time from messages inner join users as u1 on messages.sender_id = u1.user_id inner join users as u2 on messages.recipient_id = u2.user_id where recipient_id = " + strconv.Itoa(id) + " order by creation_time asc"
+      dbQuery += " where recipient_id = " + strconv.Itoa(id) + " order by creation_time asc"
 
     }
 

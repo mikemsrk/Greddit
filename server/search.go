@@ -41,13 +41,15 @@ func searchForForumThreads(w http.ResponseWriter, r *http.Request, db *sql.DB, s
   //change query based on option
   var dbQuery string 
 
+  dbQuery = "select thread_id, forum_threads.user_id, title, body, post_count, rating, forum_threads.creation_time, forum_threads.last_update_time, user_name from forum_threads inner join users on forum_threads.user_id = users.user_id where title like '%" + titleSearch + "%'"
+
   if sortBy == 0 { //get by rating
 
-    dbQuery = "select thread_id, forum_threads.user_id, title, body, post_count, rating, forum_threads.creation_time, forum_threads.last_update_time, user_name from forum_threads inner join users on forum_threads.user_id = users.user_id where title like '%" + titleSearch + "%' order by rating desc"
+    dbQuery += " order by rating desc"
 
   } else { //get by creation time
 
-    dbQuery = "select thread_id, forum_threads.user_id, title, body, post_count, rating, forum_threads.creation_time, forum_threads.last_update_time, user_name from forum_threads inner join users on forum_threads.user_id = users.user_id where title like '%" + titleSearch + "%' order by creation_time desc"
+    dbQuery += " order by creation_time desc"
 
   }
 

@@ -123,19 +123,22 @@ func getThreadPost(w http.ResponseWriter, r *http.Request, db *sql.DB, option in
   //change query based on option
   var dbQuery string 
 
+  dbQuery = "select post_id, thread_id, thread_posts.user_id, contents, rating, thread_posts.creation_time, thread_posts.last_update_time," +
+    " user_name from thread_posts inner join users on thread_posts.user_id = users.user_id"
+
   if option == 0 { //query by post id
 
-    dbQuery = "select post_id, thread_id, thread_posts.user_id, contents, rating, thread_posts.creation_time, thread_posts.last_update_time, user_name from thread_posts inner join users on thread_posts.user_id = users.user_id where post_id = " + strconv.Itoa(id)
+    dbQuery += " where post_id = " + strconv.Itoa(id)
   
   } else if option == 1 { //query by thread id
 
     if sortBy == 0 { //get by rating
 
-      dbQuery = "select post_id, thread_id, thread_posts.user_id, contents, rating, thread_posts.creation_time, thread_posts.last_update_time, user_name from thread_posts inner join users on thread_posts.user_id = users.user_id where thread_id = " + strconv.Itoa(id) + " order by rating desc"
+      dbQuery += " where thread_id = " + strconv.Itoa(id) + " order by rating desc"
 
     } else { //get by creation time
 
-      dbQuery = "select post_id, thread_id, thread_posts.user_id, contents, rating, thread_posts.creation_time, thread_posts.last_update_time, user_name from thread_posts inner join users on thread_posts.user_id = users.user_id where thread_id = " + strconv.Itoa(id)  + " order by creation_time desc"
+      dbQuery += " where thread_id = " + strconv.Itoa(id)  + " order by creation_time desc"
 
     }
 
@@ -151,11 +154,11 @@ func getThreadPost(w http.ResponseWriter, r *http.Request, db *sql.DB, option in
 
     if sortBy == 0 { //get by rating
 
-      dbQuery = "select post_id, thread_id, thread_posts.user_id, contents, rating, thread_posts.creation_time, thread_posts.last_update_time, user_name from thread_posts inner join users on thread_posts.user_id = users.user_id where thread_posts.user_id = " + strconv.Itoa(id) + " order by rating desc"
+      dbQuery += " where thread_posts.user_id = " + strconv.Itoa(id) + " order by rating desc"
 
     } else { //get by creation time
 
-      dbQuery = "select post_id, thread_id, thread_posts.user_id, contents, rating, thread_posts.creation_time, thread_posts.last_update_time, user_name from thread_posts inner join users on thread_posts.user_id = users.user_id where thread_posts.user_id = " + strconv.Itoa(id)  + " order by creation_time desc"
+      dbQuery += " where thread_posts.user_id = " + strconv.Itoa(id)  + " order by creation_time desc"
 
     }
 
@@ -171,11 +174,11 @@ func getThreadPost(w http.ResponseWriter, r *http.Request, db *sql.DB, option in
 
     if sortBy == 0 { //get by rating
 
-      dbQuery = "select post_id, thread_id, thread_posts.user_id, contents, rating, thread_posts.creation_time, thread_posts.last_update_time, user_name from thread_posts inner join users on thread_posts.user_id = users.user_id order by rating desc"
+      dbQuery += " order by rating desc"
 
     } else { //get by creation time
 
-      dbQuery = "select post_id, thread_id, thread_posts.user_id, contents, rating, thread_posts.creation_time, thread_posts.last_update_time, user_name from thread_posts inner join users on thread_posts.user_id = users.user_id order by creation_time desc"
+      dbQuery += " order by creation_time desc"
 
     }
 

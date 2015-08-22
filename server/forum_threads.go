@@ -130,17 +130,23 @@ func getForumThread(w http.ResponseWriter, r *http.Request, db *sql.DB, option i
   //change query based on option
   var dbQuery string 
 
+  dbQuery = "select thread_id, forum_threads.user_id, title, body, link, tag, post_count, rating, longitude, latitude," +
+    " forum_threads.creation_time, forum_threads.last_update_time, last_post_time, user_name" +
+    " from forum_threads inner join users on forum_threads.user_id = users.user_id"
+
   if option == 0 { //query by thread id
-    dbQuery = "select thread_id, forum_threads.user_id, title, body, link, tag, post_count, rating, longitude, latitude, forum_threads.creation_time, forum_threads.last_update_time, last_post_time, user_name from forum_threads inner join users on forum_threads.user_id = users.user_id where thread_id = " + strconv.Itoa(id)   
+
+    dbQuery += " where thread_id = " + strconv.Itoa(id)   
+
   } else if option == 1 { //query by user id
 
     if sortBy == 0 { //get by rating
 
-      dbQuery = "select thread_id, forum_threads.user_id, title, body, link, tag, post_count, rating, longitude, latitude, forum_threads.creation_time, forum_threads.last_update_time, last_post_time, user_name from forum_threads inner join users on forum_threads.user_id = users.user_id where forum_threads.user_id = " + strconv.Itoa(id) + " order by rating desc"
+      dbQuery += " where forum_threads.user_id = " + strconv.Itoa(id) + " order by rating desc"
 
     } else { //get by creation time
 
-      dbQuery = "select thread_id, forum_threads.user_id, title, body, link, tag, post_count, rating, longitude, latitude, forum_threads.creation_time, forum_threads.last_update_time, last_post_time, user_name from forum_threads inner join users on forum_threads.user_id = users.user_id where forum_threads.user_id = " + strconv.Itoa(id) + " order by creation_time desc"
+      dbQuery += " where forum_threads.user_id = " + strconv.Itoa(id) + " order by creation_time desc"
 
     }
 
@@ -156,11 +162,11 @@ func getForumThread(w http.ResponseWriter, r *http.Request, db *sql.DB, option i
 
     if sortBy == 0 { //get by rating
 
-      dbQuery = "select thread_id, forum_threads.user_id, title, body, link, tag, post_count, rating, longitude, latitude, forum_threads.creation_time, forum_threads.last_update_time, last_post_time, user_name from forum_threads inner join users on forum_threads.user_id = users.user_id order by rating desc"
+      dbQuery += " order by rating desc"
 
     } else { //get by creation time
 
-      dbQuery = "select thread_id, forum_threads.user_id, title, body, link, tag, post_count, rating, longitude, latitude, forum_threads.creation_time, forum_threads.last_update_time, last_post_time, user_name from forum_threads inner join users on forum_threads.user_id = users.user_id order by creation_time desc"
+      dbQuery += " order by creation_time desc"
 
     }
 
@@ -259,13 +265,18 @@ func getForumThreadProtected(w http.ResponseWriter, r *http.Request, db *sql.DB,
 
   //change query based on option
   var dbQuery string 
+
+  dbQuery = "select thread_id, forum_threads.user_id, title, body, link, tag, post_count, rating, longitude, latitude," +
+    " forum_threads.creation_time, forum_threads.last_update_time, last_post_time, user_name" +
+    " from forum_threads inner join users on forum_threads.user_id = users.user_id"
+
   if sortBy == 0 { 
 
-    dbQuery = "select thread_id, forum_threads.user_id, title, body, link, tag, post_count, rating, longitude, latitude, forum_threads.creation_time, forum_threads.last_update_time, last_post_time, user_name from forum_threads inner join users on forum_threads.user_id = users.user_id where forum_threads.user_id = " + strconv.Itoa(userid) + " order by rating desc"
+    dbQuery += " where forum_threads.user_id = " + strconv.Itoa(userid) + " order by rating desc"
   
   } else {
 
-    dbQuery = "select thread_id, forum_threads.user_id, title, body, link, tag, post_count, rating, longitude, latitude, forum_threads.creation_time, forum_threads.last_update_time, last_post_time, user_name from forum_threads inner join users on forum_threads.user_id = users.user_id where forum_threads.user_id = " + strconv.Itoa(userid) + " order by creation_time desc" 
+    dbQuery += " where forum_threads.user_id = " + strconv.Itoa(userid) + " order by creation_time desc" 
 
   }
 
