@@ -8,8 +8,6 @@ import (
 )
 
 
-//TODO: handle panics/errors, as one badly formatted message will shut down the server
-
 
 //function that will handle events sent by the client(s)
 func handleEvent(eventName string, messageContents string, chatter *Chatter) {
