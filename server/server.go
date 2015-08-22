@@ -50,7 +50,8 @@ func main() {
 
 
   //serve static assets
-  http.Handle("/", http.FileServer(http.Dir("../pub/dist")))
+  http.Handle("/", http.FileServer(http.Dir("../pub/build")))
+  // http.Handle("/", http.FileServer(http.Dir("../pub/dist")))
 
 
   //TODO: make urls more RESTful

@@ -60,16 +60,16 @@ var Threads = React.createClass({
 
   nextPage: function(e){
     e.preventDefault();
-    this.setState({
-      page: this.state.page+1
-    });
-    ThreadActions.fetchPage({page:this.state.page+1});
+    // this.setState({
+    //   page: this.state.page+1
+    // });
+    // ThreadActions.fetchPage({page:this.state.page+1});
   },
 
   render: function() {
     return (
       <div className="threads">
-        <p className="showing">showing {this.state.threads.length} threads out of {this.state.threads.length} </p>
+        <br></br>
           {
             this.state.threads.map(function(item){
               return (

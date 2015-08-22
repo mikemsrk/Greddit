@@ -1,3 +1,56 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  color:black;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* Reset Styling */
+
 #content h1{
   text-align:center;
 }
@@ -5,7 +58,8 @@
 body{
   /*background-image: url("../assets/animus-mix.gif");*/
   /*background-repeat: repeat;*/
-  margin-top:5%;
+  background-color:white;
+  margin-top:4%;
 }
 
 .centered{
@@ -50,9 +104,18 @@ h2{
   margin:0;
 }
 
-
+/* Inbox Page */
+.inbox{
+  padding-left:3%;
+  padding-top:3%;
+}
 
 /* Profile Page */
+
+.profile{
+  padding-left:3%;
+  padding-top:3%;
+}
 
 .profile img{
   width:200px;
@@ -275,6 +338,15 @@ h2{
   width:400px;
 }
 
+.spinner{
+  display:block;
+  margin:auto auto auto auto;
+  top:40%;
+  width:100px;
+  height:100px;
+  text-align:center;
+}
+
 
 /* Front Page */
 
@@ -294,6 +366,12 @@ h2{
 
 .showing{
   text-align:center;
+  font-size:15px;
+  margin-bottom:10px;
+}
+
+.frontPage{
+  margin-bottom:10px;
 }
 
 .frontPage h2{
@@ -328,10 +406,14 @@ h2{
 
 .frontPage .title{
   float:top;
+  margin-bottom:10px;
 }
 
 .frontPage .title p{
   font-size:14px;
+}
+.frontPage .title a{
+  color:teal;
 }
 
 .frontPage .votes{
@@ -349,6 +431,10 @@ h2{
   margin-left:auto;
   border-radius:20px;
   text-align:center;
+}
+
+.frontPage .created .user span{
+  color:teal;
 }
 
 .glyphicon-chevron-down{
@@ -386,6 +472,14 @@ svg:not(:root){
   box-shadow:-1px 1px 3px 1px lightgrey;
 }
 
+.rd3-piechart-text{
+  font-size:0px;
+}
+
+.rd3-piechart-label{
+  font-size:15px;
+}
+
 .sidebar-nav img{
   width:230px;
   height:140px;
@@ -395,7 +489,7 @@ svg:not(:root){
     /*position: absolute;*/
     top: 0;
     width: 250px;
-    margin-left: auto;
+    margin-left: 5%;
     margin-right: auto;
     padding: 0;
     list-style: none;
@@ -498,10 +592,13 @@ svg:not(:root){
 }
 
 /* Thread (single) */
+.thread{
+  padding-left:3%;
+  padding-top:3%;
+}
 
 .thread input{
   width:100%;
-
 }
 
 .edit-icon{

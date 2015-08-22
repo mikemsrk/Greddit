@@ -27,12 +27,12 @@ var Geo = React.createClass({
     console.log(this.state.threads);
   },
 
-
   render: function() {
     return (
       <div> <Map threads={this.state.threads}/></div>
     );
   }
+
 });
 
 module.exports = Geo;

@@ -42,13 +42,14 @@ var App = React.createClass({
     return (
       <div className="container-fluid">
         <Navbar/>
-        <div className="col-sm-3 sidebar">
-          <Sidebar />
-        </div>
-
-        <div className="col-sm-9">
-          <RouteHandler/>
-        </div>
+          <div id="wrapper" className="toggled">
+            <div id="sidebar-wrapper">
+              <Sidebar/>
+            </div>
+            <div id="page-content-wrapper">
+              <RouteHandler/>
+            </div>
+          </div>
       </div>
     );
   }
@@ -57,8 +58,9 @@ var App = React.createClass({
 // TODO: Setup thread routes
 var routes = (
   <Route path="/" handler={App}>
-    <DefaultRoute handler={Front}/>
-    <Route name="front" path="front" handler={Front}/>
+    <DefaultRoute handler={Geo}/>
+    <Route name="front" path="front" handler={Geo}/>
+    <Route name="threads" path="threads" handler={Front}/>
     <Route path="profile" handler={Profile}/>
     <Route path="inbox" handler={Inbox}/>
     <Route name="login" path="login" handler={Login}/>
@@ -67,24 +69,29 @@ var routes = (
     <Route path="new" handler={NewThread}/>
     <Route path="thread/:id" handler={Thread}/>
     <Route path="user/:id" handler={User}/>
-    <Route path="geo" handler={Geo}/>
   </Route>
 );
 
-
-Router.run(routes, Router.HashLocation, function(Root){
-  React.render(
-    <Root locales={['en-US']}/>,
-    document.getElementById('app')
-  );
-});
 	
 module.exports = App;
 
+var reactApp = $('#app');
+
 $('#app').hide();
+
 // Button On click - render app and hide landing div.
 $('#goApp').on('click',function(){
-    $('#landing').hide();
+    $('body').html('');
+    $('body').append(reactApp);
     $('#app').show();
-    // location.hash = '/';
+    $('head').append('<link rel="stylesheet" href="main.css"/>');
+    $("html, body").animate({scrollTop: 0}, 500);
+
+    Router.run(routes, Router.HashLocation, function(Root){
+      React.render(
+        <Root locales={['en-US']}/>,
+        document.getElementById('app')
+      );
+    });
+    
 });

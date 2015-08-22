@@ -87,7 +87,7 @@ var ThreadItem = React.createClass({
             <a href="#" ref="down" className="glyphicon glyphicon-chevron-down" aria-hidden="true" onClick={this.redirect}></a> {this.props.item.rating} <a href="#" ref="up" className="glyphicon glyphicon-chevron-up" aria-hidden="true" onClick={this.redirect}></a>
           </div>
         )}
-        <p className="created">created <FormattedRelative value={created} /> by <a href={"#/user/"+this.props.item.user_id}> {this.props.item.user_name} </a></p>
+        <p className="created">created <FormattedRelative value={created} /> by <a className="user" href={"#/user/"+this.props.item.user_id}> {this.props.item.user_name} </a></p>
         <p className="created">comments: {this.props.item.post_count} </p>
 
         <div className="info">

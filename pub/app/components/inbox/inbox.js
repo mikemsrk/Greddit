@@ -33,7 +33,7 @@ var Inbox = React.createClass({
 
   render: function() {
     return (
-      <div>
+      <div className="inbox">
         <h3>Inbox</h3>
         <table className="table table-hover">
           <thead>

@@ -68,6 +68,10 @@ var Sidebar = React.createClass({
       AuthStore.addChangeListener(this._onAuthChange);
       ChatStore.addChangeListener(this._onChange);
       this.loadTrending();
+      $("#menu-toggle").click(function(e) {
+          e.preventDefault();
+          $("#wrapper").toggleClass("toggled");
+      });
     },
 
     componentWillUnmount: function(){
@@ -105,22 +109,21 @@ var Sidebar = React.createClass({
     },
 
     render: function(){
-
-    return (
+      return (
         <ul className="sidebar-nav">
-            <a href="#" onClick={this.toFront}><img src="/assets/logo.png"></img></a>
+            <li><h1>Welcome!</h1></li>
             <li>
-                <a>Trending</a>
-                <Treemap
+                <h2>Trending</h2>
+                <PieChart
                   data={this.state.data}
-                  width={225}
+                  width={220}
                   height={200}
-                  textColor="#484848"
-                  fontSize="12px"/>
+                  radius={40}
+                  innerRadius={0}/>
             </li>
             {this.state.loggedIn ? (
               <li>
-                  <a>Chat (global)</a>
+                  <h2>Chat (global)</h2>
               </li>
               ):(
               <p>Please log in to use chat.</p>
@@ -133,12 +136,40 @@ var Sidebar = React.createClass({
               )
             }
         </ul>
-    );
+      );
   }
 });
 
 module.exports = Sidebar;
 
+// return (
+//     <ul className="sidebar-nav">
+//         <a href="#" onClick={this.toFront}><img src="/assets/logo.png"></img></a>
+//         <li>
+//             <a>Trending</a>
+//             <Treemap
+//               data={this.state.data}
+//               width={225}
+//               height={200}
+//               textColor="#484848"
+//               fontSize="12px"/>
+//         </li>
+//         {this.state.loggedIn ? (
+//           <li>
+//               <a>Chat (global)</a>
+//           </li>
+//           ):(
+//           <p>Please log in to use chat.</p>
+//           )
+//         }
+//         {this.state.loggedIn ? (
+//         <Chat messages={this.state.messages} user={this.state.from} onSend={this.sendMessage} onChat={this.joinChat} />
+//           ):(
+//           null
+//           )
+//         }
+//     </ul>
+// );
 
 // <li>
 //     <a href="#">Friends</a>
@@ -151,3 +182,10 @@ module.exports = Sidebar;
 //   height={200}
 //   radius={50}
 //   innerRadius={10}/>
+
+// <Treemap
+//   data={this.state.data}
+//   width={225}
+//   height={200}
+//   textColor="#484848"
+//   fontSize="12px"/>

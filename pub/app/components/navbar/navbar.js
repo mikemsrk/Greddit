@@ -55,7 +55,7 @@ var Navbar = React.createClass({
     }
     if(this.state.loggedIn){
       // location.hash = '/';
-      this.transitionTo('front');
+      this.transitionTo('threads');
     }
   },
 
@@ -139,12 +139,14 @@ var Navbar = React.createClass({
             <span className="icon-bar"></span>
             <span className="icon-bar"></span>
           </button>
-          <a className="navbar-brand" href="#" onClick={this.toFront}>Greddit</a>
+          <ul className="navbar-nav">
+            <li><a href="#menu-toggle" className="glyphicon glyphicon-menu-hamburger" id="menu-toggle"></a></li>
+            <li><a className="navbar-brand" href="#" onClick={this.toFront}>Greddit</a></li>
+          </ul>
         </div>
         
         <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul className="nav navbar-nav navbar-right">
-
           <form className="navbar-form navbar-left" onSubmit={this.handleSearch}>
             <input type="text" ref="searchQ" className="form-control" placeholder="Search"/>
             <i className="glyphicon glyphicon-search search-submit" required=""></i>
@@ -166,7 +168,7 @@ var Navbar = React.createClass({
               </div>
             </form>
           )}
-          <li><Link to="/geo">Geo</Link></li>
+          <li><Link to="/threads">Threads</Link></li>
 
             {!this.state.loggedIn ? (
               null
