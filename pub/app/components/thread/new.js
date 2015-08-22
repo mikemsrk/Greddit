@@ -104,9 +104,9 @@ var NewThread = React.createClass({
 
   render: function() {
     return (
-      <div className="col-md-12">
+      <div className="col-md-12 newThread">
         <h3>New Thread</h3>
-        <div className="newThread center-block">
+        <div className="center-block">
             <form onSubmit={this.addThread}>
               <input type="text" className="form-control" placeholder="Title" ref="title" />
               <input type="text" className="form-control" placeholder="Link" ref="link" />

@@ -81,6 +81,7 @@ $('#app').hide();
 
 // Button On click - render app and hide landing div.
 $('#goApp').on('click',function(){
+  console.log('clicked');
     $('body').html('');
     $('body').append(reactApp);
     $('#app').show();
