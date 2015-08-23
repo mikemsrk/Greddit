@@ -133,15 +133,17 @@ var Navbar = React.createClass({
       )}
 
         <div className="navbar-header">
-          <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <button type="button" className="navbar-toggle collapsed glyphicon glyphicon-cog" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
             <span className="sr-only">Toggle navigation</span>
             <span className="icon-bar"></span>
             <span className="icon-bar"></span>
             <span className="icon-bar"></span>
           </button>
           <ul className="navbar-nav">
-            <li><a href="#menu-toggle" className="glyphicon glyphicon-menu-hamburger" id="menu-toggle"></a></li>
-            <li><a className="navbar-brand" href="#" onClick={this.toFront}>Greddit</a></li>
+            <li>
+              <a className="navbar-brand" href="#" onClick={this.toFront}>Greddit</a>
+              <a href="#menu-toggle" className="glyphicon glyphicon-menu-hamburger" id="menu-toggle"></a>
+            </li>
           </ul>
         </div>
         

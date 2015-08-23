@@ -159,7 +159,7 @@ h2{
 
 .sendMsg .close{
   float:right;
-  margin-top:-60px;
+  margin-top:-40px;
   width:80px;
   margin-left:10px;
 }
@@ -214,10 +214,17 @@ h2{
   margin-right:5px;
 }
 
+.navbar #menu-toggle{
+  display:inline-block;
+}
+
 .navbar button{
   margin-top:10px;
-  margin-right:20px;
-  background-color:black;
+  /*margin-right:20px;*/
+}
+
+.container-fluid>.navbar-header{
+  margin:0;
 }
 
 .navbar-header a{
@@ -243,6 +250,7 @@ h2{
 .navbar .container-fluid{
   margin-right:20px;
 }
+
 
 
 .navbar{
@@ -480,6 +488,14 @@ svg:not(:root){
   /*border: 1px solid black;*/
   background:white;
   box-shadow:-1px 1px 3px 1px lightgrey;
+}
+
+#wrapper.toggled #sidebar-wrapper{
+  width:0px;
+}
+
+#wrapper.toggled{
+  padding-left:0px;
 }
 
 .rd3-piechart-text{
