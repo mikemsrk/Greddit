@@ -93,7 +93,7 @@ var Map = React.createClass({
           zoom: 3,
 
           // The latitude and longitude to center the map (always required)
-          center: new google.maps.LatLng(30, 0), // New York
+          center: new google.maps.LatLng(0, 0), // New York
 
           // How you would like to style the map. 
           // This is where you would paste any style found on Snazzy Maps.
