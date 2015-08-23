@@ -214,8 +214,16 @@ h2{
   margin-right:5px;
 }
 
+.navbar-collapse{
+  text-align:center;
+}
+
 .navbar #menu-toggle{
   display:inline-block;
+}
+
+.navbar-toggle{
+  margin:0;
 }
 
 .navbar button{
@@ -251,8 +259,6 @@ h2{
   margin-right:20px;
 }
 
-
-
 .navbar{
   /*background-color:#1A3F42;*/
   background-color:white;
@@ -270,7 +276,6 @@ h2{
   padding-left:15px;
   margin-left:10px;
 }
-
 
 /* Login/Signup Page */
 
@@ -659,7 +664,6 @@ svg:not(:root){
   float:right;
   text-align:right;
   margin-top:-70px;
-
 }
 
 .meta-info p{

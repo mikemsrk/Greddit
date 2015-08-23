@@ -71,26 +71,26 @@ var ThreadItem = React.createClass({
 
     return (
       <div className="frontPage">
-        <img src="assets/thread_icon.png"></img>
+          <img src="assets/thread_icon.png"></img>
 
-        <div className="title">
-          <h2><a href={"#/thread/"+this.props.item.thread_id}>{this.props.item.title}</a></h2>
-          <p>{body}</p>
-        </div>
-
-        {this.props.loggedIn ? (
-          <div className="votes">
-            <a href="#" ref="down" className="glyphicon glyphicon-chevron-down" aria-hidden="true" onClick={this.downVote}></a> {this.props.item.rating} <a href="#" ref="up" className="glyphicon glyphicon-chevron-up" aria-hidden="true" onClick={this.upVote}></a>
+          <div className="title">
+            <h2><a href={"#/thread/"+this.props.item.thread_id}>{this.props.item.title}</a></h2>
+            <p>{body}</p>
           </div>
-          ) : (
-          <div className="votes">
-            <a href="#" ref="down" className="glyphicon glyphicon-chevron-down" aria-hidden="true" onClick={this.redirect}></a> {this.props.item.rating} <a href="#" ref="up" className="glyphicon glyphicon-chevron-up" aria-hidden="true" onClick={this.redirect}></a>
-          </div>
-        )}
-        <p className="created">created <FormattedRelative value={created} /> by <a className="user" href={"#/user/"+this.props.item.user_id}> {this.props.item.user_name} </a></p>
-        <p className="created">comments: {this.props.item.post_count} </p>
 
-        <div className="info">
+          {this.props.loggedIn ? (
+            <div className="votes">
+              <a href="#" ref="down" className="glyphicon glyphicon-chevron-down" aria-hidden="true" onClick={this.downVote}></a> {this.props.item.rating} <a href="#" ref="up" className="glyphicon glyphicon-chevron-up" aria-hidden="true" onClick={this.upVote}></a>
+            </div>
+            ) : (
+            <div className="votes">
+              <a href="#" ref="down" className="glyphicon glyphicon-chevron-down" aria-hidden="true" onClick={this.redirect}></a> {this.props.item.rating} <a href="#" ref="up" className="glyphicon glyphicon-chevron-up" aria-hidden="true" onClick={this.redirect}></a>
+            </div>
+          )}
+          <p className="created">created <FormattedRelative value={created} /> by <a className="user" href={"#/user/"+this.props.item.user_id}> {this.props.item.user_name} </a></p>
+          <p className="created">comments: {this.props.item.post_count} </p>
+
+        <div className="info navbar-collapse">
           <p className="tag">{this.props.item.tag} </p>
           <p>updated&nbsp;<FormattedRelative value= {updated} /></p>
         </div>

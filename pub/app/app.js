@@ -81,8 +81,11 @@ $('#app').hide();
 
 // Button On click - render app and hide landing div.
 $('#goApp').on('click',function(){
-  console.log('clicked');
     $('body').html('');
+    $('body').removeAttr('id');
+    $('body').removeAttr('data-spy');
+    $('body').removeAttr('data-target');
+
     $('body').append(reactApp);
     $('#app').show();
     $('head').append('<link rel="stylesheet" href="main.css"/>');
