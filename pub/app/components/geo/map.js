@@ -90,7 +90,7 @@ var Map = React.createClass({
     loadMap: function(){
       var mapOptions = {
           // How zoomed in you want the map to start at (always required)
-          zoom: 2,
+          zoom: 3,
 
           // The latitude and longitude to center the map (always required)
           center: new google.maps.LatLng(30, 0), // New York
