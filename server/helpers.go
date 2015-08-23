@@ -38,7 +38,8 @@ func handleError(err error, errorMsg string, w http.ResponseWriter) {
   //log.Fatal(err)
   fmt.Println(errorMsg)
   w.Header()["Content-Type"] = []string{"text/html"}
-  w.Write([]byte(fmt.Sprintf(errorMsg)))  
+  w.WriteHeader(http.StatusBadRequest) 
+  w.Write([]byte(fmt.Sprintf(errorMsg))) 
 }
 
 //function that returns true if the client is authenticated (has a valid cookie)
