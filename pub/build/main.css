@@ -106,15 +106,15 @@ h2{
 
 /* Inbox Page */
 .inbox{
-  padding-left:3%;
-  padding-top:3%;
+  padding-left:40px;
+  padding-top:40px;
 }
 
 /* Profile Page */
 
 .profile{
-  padding-left:3%;
-  padding-top:3%;
+  padding-left:40px;
+  padding-top:40px;
 }
 
 .profile img{
@@ -124,6 +124,13 @@ h2{
 
 .profile p{
   color:black;
+  margin-top:10px;
+  margin-bottom:10px;
+}
+
+.profile h3{
+  margin-top:20px;
+  margin-bottom:10px;
 }
 
 .profile .btn{
@@ -328,12 +335,12 @@ h2{
 
 /* New Thread Page */
 .newThread{
-  padding-left:3%;
-  padding-top:3%;
+  padding-left:40px;
+  padding-top:40px;
 }
 
 .newThread form{
-  width:40%;
+  width:400px;
 }
 
 .newThread img{
@@ -633,8 +640,8 @@ svg:not(:root){
 
 /* Thread (single) */
 .thread{
-  padding-left:3%;
-  padding-top:3%;
+  padding-left:40px;
+  padding-top:40px;
 }
 
 .thread h3{
@@ -676,6 +683,12 @@ svg:not(:root){
   font-size:12px;
   margin:0;
   padding:0;
+}
+
+@media(max-width:768px) {
+  .meta-info{
+    display:none;
+  }
 }
 
 .thread .tag{
