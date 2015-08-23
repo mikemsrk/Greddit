@@ -165,10 +165,10 @@ h2{
 }
 
 .sendMsg .close{
-  float:right;
+/*  float:right;
   margin-top:-40px;
   width:80px;
-  margin-left:10px;
+  margin-left:10px;*/
 }
 
 .sendMsg .submit{
@@ -334,13 +334,10 @@ h2{
 }
 
 /* New Thread Page */
-.newThread{
-  padding-left:40px;
-  padding-top:40px;
-}
 
 .newThread form{
-  width:400px;
+  margin-top:50px;
+  width:350px;
 }
 
 .newThread img{
@@ -350,11 +347,20 @@ h2{
 }
 
 .newThread input[type="textarea"]{
-  height:200px;
+  height:100px;
 }
 
-.newThread input, .newThread button{
+.newThread input{
   margin:10px;
+}
+
+.newThread button{
+  display:block;
+  text-align:center;
+  margin-left:auto;
+  margin-right:auto;
+  border-radius:10px;
+  margin-bottom:20px;
 }
 
 .newComment{
@@ -610,6 +616,30 @@ svg:not(:root){
   height: 650px;
   font-size:28px;
   font-family:'century gothic';
+}
+
+.showLimit{
+  position:absolute;
+  background-color:white;
+  opacity:.7;
+  padding:20px;
+  z-index:10;
+  width:350px;
+  height:110px;
+  top:30px;
+  left:70%;
+}
+
+.showLimit p{
+  margin-bottom:10px;
+}
+
+.form-control.close{
+  position:absolute;
+  top:10px;
+  width:40px;
+  left:85%;
+  margin-left:10px;
 }
 
 .geoThread p{
