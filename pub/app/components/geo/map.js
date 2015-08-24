@@ -182,10 +182,12 @@ var Map = React.createClass({
 
     nextPage: function(e){
       e.preventDefault();
-      this.setState({
-        page: this.state.page+1
-      });
-      ThreadActions.fetchPage({page:this.state.page+1});
+      if(this.state.page < 2){
+        this.setState({
+          page: this.state.page+1
+        });
+        ThreadActions.fetchPage({page:this.state.page+1});
+      }
     },
 
   render: function(){
@@ -204,37 +206,39 @@ var Map = React.createClass({
 
       <div id="map">
         <img className="spinner" ref="spinner" src="/assets/spinner.gif"></img>
-
-        <Modal isOpen={this.state.modalIsOpen} onRequestClose={this.closeModal}>
-
-          {this.state.loggedIn ? (
-            <div>
-              <h3>Share a story</h3>
-              <button className="form-control close" onClick={this.closeModal}>X</button>
-                <div className="col-md-12 newThread">
-                  <form onSubmit={this.addThread}>
-                    <input type="text" className="form-control" placeholder="Title" ref="title" />
-                    <input type="text" className="form-control" placeholder="Link" ref="link" />
-                    <input type="textarea" className="form-control" placeholder="Body" ref="body" />
-                    <input type="text" className="form-control" placeholder="Tag" ref="tag" />
-                    <input type="text" className="form-control" value={this.state.lat} ref="lat" />
-                    <input type="text" className="form-control" value={this.state.lng} ref="lng" />
-                    <button type="submit" className="btn btn-success" value="Submit">Submit</button>
-                  </form>
-                </div>
-            </div>
-            ):(
-            <div>
-              <h3>Please log in to share stories</h3>
-              <form>
-                <button className="form-control close" onClick={this.closeModal}>X</button>
-              </form>
-            </div>
-          )}
-
-
-        </Modal>
       </div>
+
+      <Modal isOpen={this.state.modalIsOpen} onRequestClose={this.closeModal}>
+
+        {this.state.loggedIn ? (
+          <div>
+            <h3>Share a story</h3>
+            <form>
+              <button className="form-control close" onClick={this.closeModal}>X</button>
+            </form>
+              <div className="col-md-12 newThread">
+                <form onSubmit={this.addThread}>
+                  <input type="text" className="form-control" placeholder="Title" ref="title" />
+                  <input type="text" className="form-control" placeholder="Link" ref="link" />
+                  <input type="textarea" className="form-control" placeholder="Body" ref="body" />
+                  <input type="text" className="form-control" placeholder="Tag" ref="tag" />
+                  <input type="text" className="form-control" value={this.state.lat} ref="lat" />
+                  <input type="text" className="form-control" value={this.state.lng} ref="lng" />
+                  <button type="submit" className="btn btn-success" value="Submit">Submit</button>
+                </form>
+              </div>
+          </div>
+          ):(
+          <div>
+            <h3>Please log in to share stories</h3>
+            <form>
+              <button className="form-control close" onClick={this.closeModal}>X</button>
+            </form>
+          </div>
+        )}
+
+
+      </Modal>
       </div>
     );
   }
