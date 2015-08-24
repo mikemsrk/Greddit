@@ -335,9 +335,13 @@ h2{
 
 /* New Thread Page */
 
+
+
 .newThread form{
   margin-top:50px;
-  width:350px;
+  width:100%;
+  margin-left:auto;
+  margin-right:auto;
 }
 
 .newThread img{

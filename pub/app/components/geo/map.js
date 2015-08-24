@@ -117,18 +117,18 @@ var Map = React.createClass({
 
               // On click save, create and save marker
 
-              var template = $('#edit_marker_template').text();
+              // var template = $('#edit_marker_template').text();
 
-              var content = template.replace(/{{index}}/g, index).replace(/{{lat}}/g, lat).replace(/{{lng}}/g, lng);
+              // var content = template.replace(/{{index}}/g, index).replace(/{{lat}}/g, lat).replace(/{{lng}}/g, lng);
 
-              map.addMarker({
-                lat: lat,
-                lng: lng,
-                title: 'Marker #' + index,
-                infoWindow: {
-                  content : content
-                }
-              });
+              // map.addMarker({
+              //   lat: lat,
+              //   lng: lng,
+              //   title: 'Marker #' + index,
+              //   infoWindow: {
+              //     content : content
+              //   }
+              // });
             });
 
           GMaps.geolocate({
