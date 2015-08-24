@@ -156,7 +156,7 @@ var Map = React.createClass({
           // Center the map first time
           map.setCenter(-60, 0);
 
-      },200);
+      },1000);
     },
 
     loadMarkers: function(data,map){
