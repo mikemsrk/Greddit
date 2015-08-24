@@ -153,7 +153,10 @@ var Map = React.createClass({
           // Load the markers
           that.loadMarkers(that.state.threads,map);
 
-      },1000);
+          // Center the map first time
+          map.setCenter(-60, 0);
+
+      },200);
     },
 
     loadMarkers: function(data,map){
