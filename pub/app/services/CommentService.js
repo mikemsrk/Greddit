@@ -8,18 +8,10 @@ var addComment = function(threadId,body,callback) {
     }),
     crossDomain: true,
     success: function(resp) {
-      console.log('success',resp);
-      return callback(resp);
+      callback(resp);
     },
     error: function(resp) {
-      // TODO: Fix this, this always goes to error - not sure.
-      // Found out - jQuery 1.4.2 works with current go server, but breaks with newer ver.
-      console.log('error',resp);
-      if(resp.responseText === ""){ // if no error msg
-        callback(resp);
-      }else{         // if error msg
-        callback(null);
-      }
+      callback(null);
     }
   });
 };
@@ -30,14 +22,10 @@ var fetchComment = function(id,callback) {
     type: 'GET',
     url: '/profile/',
     crossDomain: true,
-    success: function(resp) { // WORKING for fetchuser?
-      console.log('success',resp);
+    success: function(resp) {
       callback(resp);
     },
     error: function(resp) {
-      // TODO: Fix this, this always goes to error - not sure.
-      // Found out - jQuery 1.4.2 works with current go server, but breaks with newer ver.
-      console.log('error',resp);
       callback(null);
     }
   });
@@ -49,14 +37,10 @@ var fetchPage = function(threadId, page, callback) {
     type: 'GET',
     url: '/posts/?threadid='+threadId+'&sortby=rating&pagenumber='+page,
     crossDomain: true,
-    success: function(resp) { // WORKING for fetchuser?
-      console.log('success',resp);
+    success: function(resp) {
       callback(resp);
     },
     error: function(resp) {
-      // TODO: Fix this, this always goes to error - not sure.
-      // Found out - jQuery 1.4.2 works with current go server, but breaks with newer ver.
-      console.log('error',resp);
       callback(null);
     }
   });
@@ -64,19 +48,14 @@ var fetchPage = function(threadId, page, callback) {
 };
 
 var fetchUserPage = function(page, callback) {
-  
   $.ajax({
     type: 'GET',
     url: '/profilethreads/?sortby=rating&pagenumber='+ page,
     crossDomain: true,
-    success: function(resp) { // WORKING for fetchuser?
-      // console.log('success',resp);
+    success: function(resp) {
       callback(resp);
     },
     error: function(resp) {
-      // TODO: Fix this, this always goes to error - not sure.
-      // Found out - jQuery 1.4.2 works with current go server, but breaks with newer ver.
-      console.log('error',resp);
       callback(null);
     }
   });
@@ -96,12 +75,9 @@ var editComment = function(post_id,body,callback) {
       return callback(resp);
     },
     error: function(resp) {
-      // TODO: Fix this, this always goes to error - not sure.
-      // Found out - jQuery 1.4.2 works with current go server, but breaks with newer ver.
-      console.log('error',resp);
-      if(resp.responseText === ""){ // if no error msg
+      if(resp.responseText === ""){
         callback(resp);
-      }else{         // if error msg
+      }else{
         callback(null);
       }
     }
@@ -114,18 +90,10 @@ var deleteComment = function(post_id,callback) {
     url: '/post/'+post_id,
     crossDomain: true,
     success: function(resp) {
-      console.log('success',resp);
-      return callback(resp);
+      callback(resp);
     },
     error: function(resp) {
-      // TODO: Fix this, this always goes to error - not sure.
-      // Found out - jQuery 1.4.2 works with current go server, but breaks with newer ver.
-      console.log('error',resp);
-      if(resp.responseText === ""){ // if no error msg
-        callback(resp);
-      }else{         // if error msg
-        callback(null);
-      }
+      callback(null);
     }
   });
 };
@@ -136,14 +104,10 @@ var upVote = function(post_id, callback) {
     type: 'POST',
     url: '/post/'+ post_id + '/?upvote=true',
     crossDomain: true,
-    success: function(resp) { // WORKING for fetchuser?
-      // console.log('success',resp);
+    success: function(resp) {
       callback(resp);
     },
     error: function(resp) {
-      // TODO: Fix this, this always goes to error - not sure.
-      // Found out - jQuery 1.4.2 works with current go server, but breaks with newer ver.
-      console.log('error',resp);
       callback(null);
     }
   });
@@ -156,14 +120,10 @@ var downVote = function(post_id, callback) {
     type: 'POST',
     url: '/post/'+ post_id + '/?downvote=true',
     crossDomain: true,
-    success: function(resp) { // WORKING for fetchuser?
-      // console.log('success',resp);
+    success: function(resp) {
       callback(resp);
     },
     error: function(resp) {
-      // TODO: Fix this, this always goes to error - not sure.
-      // Found out - jQuery 1.4.2 works with current go server, but breaks with newer ver.
-      console.log('error',resp);
       callback(null);
     }
   });
