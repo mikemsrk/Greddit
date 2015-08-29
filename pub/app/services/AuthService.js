@@ -7,33 +7,22 @@ var authenticateUser = function(username, password, callback) {
       password: password
     }),
     crossDomain: true,
-    success: function(resp) { // NOT WORKING
-      console.log('success',resp);
+    success: function(resp) {
       callback({
         authenticated: true,
         token: resp.auth_token
       });
     },
     error: function(resp) {
-      // TODO: Fix this, this always goes to error - not sure.
-      // Found out - jQuery 1.4.2 works with current go server, but breaks with newer ver.
-      console.log('error',resp);
-      if(resp.responseText === ""){
-        callback({
-          authenticated: true,
-          token: resp.auth_token
-        });
-      }else{
-        callback({
-          authenticated: false
-        });
-      }
+      callback({
+        authenticated: false
+      });
     }
   });
 };
 
 var createUser = function(username, password, firstname, lastname, callback) {
-  return $.ajax({
+  $.ajax({
     type: 'POST',
     url: '/users/',
     data: JSON.stringify({
@@ -44,26 +33,15 @@ var createUser = function(username, password, firstname, lastname, callback) {
     }),
     crossDomain: true,
     success: function(resp) {
-      console.log('success',resp);
-      return callback({
+      callback({
         authenticated: true,
         token: resp.auth_token
       });
     },
     error: function(resp) {
-      // TODO: Fix this, this always goes to error - not sure.
-      // Found out - jQuery 1.4.2 works with current go server, but breaks with newer ver.
-      console.log('error',resp);
-      if(resp.responseText === ""){ // if no error msg
-        callback({
-          authenticated: true,
-          token: resp.auth_token
-        });
-      }else{         // if error msg
-        callback({
-          authenticated: false
-        });
-      }
+      callback({
+        authenticated: false
+      });  
     }
   });
 };
@@ -72,18 +50,9 @@ var Auth = {
   login: function(username, pass, callback) {
     var that = this;
 
-    if (this.loggedIn()) {
-      // console.log('already logged in');
-      // if (callback) {
-      //   callback(true);
-      // }
-      // this.onChange(true);
-      // return;
-    }
     authenticateUser(username, pass, (function(res) {
         var authenticated = false;
         if (res.authenticated) {
-          console.log('login successful');
           authenticated = true;
         }
         if (callback) {
@@ -95,13 +64,6 @@ var Auth = {
   signup: function(username, password, firstname, lastname, callback) {
     var that = this;
     
-    if (this.loggedIn()) {
-      // if (callback) {
-      //   callback(true);
-      // }
-      // this.onChange(true);
-      // return;
-    }
     createUser(username, password, firstname, lastname, function(res) {
         var authenticated = false;
         if (res.authenticated) {
@@ -136,7 +98,6 @@ var Auth = {
   },
 
   loggedIn: function() {
-    // check the flash session cookie
     var good = false;
     var cookies = document.cookie.split(";");
 
