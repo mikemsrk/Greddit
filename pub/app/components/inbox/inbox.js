@@ -5,7 +5,6 @@ var MessageActions = require('../../actions/MessageActions');
 var MessageStore = require('../../stores/MessageStore');
 
 var Inbox = React.createClass({
-  // TODO: Incorporate Later when Auth is in.
 
   getInitialState: function(){
     return {
@@ -28,7 +27,6 @@ var Inbox = React.createClass({
     this.setState({
       messages: MessageStore.getMessages()
     });
-    // console.log(MessageStore.getMessages());
   },
 
   render: function() {
@@ -60,9 +58,3 @@ var Inbox = React.createClass({
 });
 
 module.exports = Inbox;
-
-// {this.state.threads.map(function(item){
-//   return (
-//     <ProfileThreadItem key={item.thread_id} item={item}/>
-//   );
-// })}

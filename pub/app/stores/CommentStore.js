@@ -32,7 +32,6 @@ var CommentStore = assign({}, EventEmitter.prototype, {
     var that = this;
     Comment.fetchPage(threadId, page, function(data){
       _comments = data;
-      console.log(data);
       that.emitChange();
     });
   },
@@ -106,11 +105,9 @@ AppDispatcher.register(function(payload){
       CommentStore.add(action.data.threadId,action.data.body);
       break;
     case CommentConstants.POST_EDIT:
-      // TODO: Updating a Comment
       CommentStore.edit(action.data.post_id,action.data.body);
       break;
     case CommentConstants.POST_DELETE:
-      // TODO: Deleting a Comment
       CommentStore.delete(action.data.post_id);
       break;
     case CommentConstants.POST_UPVOTE:

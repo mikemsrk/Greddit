@@ -1,17 +1,9 @@
 var React = require('react');
 
 var Chatbox = React.createClass({
-  getInitialState: function(){
-    return {
-    };
-  },
 
   componentDidMount: function(){
     this.props.onChat(); // joins the chat
-  },
-
-  componentWillUnmount: function(){
-
   },
 
   handleSubmit: function(e){

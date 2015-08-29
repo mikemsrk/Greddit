@@ -39,7 +39,7 @@ var AuthStore = assign({}, EventEmitter.prototype, {
       that.emitChange();
     });
   },
-  // log out user
+  
   logout: function() {
     var that = this;
     _error = false;

@@ -27,7 +27,6 @@ var formatBody = function(str){
 var ProfileThreadItem = React.createClass({
 
   render: function() {
-    // TODO: Clicking on title takes you to individual thread.
     var created = formatDate(this.props.item.creation_time);
     var updated = formatDate(this.props.item.last_update_time);
     var body = formatBody(this.props.item.body);

@@ -9,22 +9,15 @@ var Treemap = rd3.Treemap;
 
 var Router = require('react-router');
 
-// var FriendList = require("../friend/friendlist")
-// TODO - factor out navbar login form
-
 var getTrending = function(callback) {
   $.ajax({
     type: 'GET',
     url: '/trending/',
     crossDomain: true,
-    success: function(resp) { // WORKING for fetchuser?
-      // console.log('success',resp);
+    success: function(resp) {
       callback(resp);
     },
     error: function(resp) {
-      // TODO: Fix this, this always goes to error - not sure.
-      // Found out - jQuery 1.4.2 works with current go server, but breaks with newer ver.
-      console.log('error',resp);
       callback(null);
     }
   });
@@ -45,7 +38,6 @@ var Sidebar = React.createClass({
     },
 
     loadTrending: function(){
-      // Get Trending data
       var that = this;
 
       getTrending(function(data){
@@ -141,51 +133,3 @@ var Sidebar = React.createClass({
 });
 
 module.exports = Sidebar;
-
-// return (
-//     <ul className="sidebar-nav">
-//         <a href="#" onClick={this.toFront}><img src="/assets/logo.png"></img></a>
-//         <li>
-//             <a>Trending</a>
-//             <Treemap
-//               data={this.state.data}
-//               width={225}
-//               height={200}
-//               textColor="#484848"
-//               fontSize="12px"/>
-//         </li>
-//         {this.state.loggedIn ? (
-//           <li>
-//               <a>Chat (global)</a>
-//           </li>
-//           ):(
-//           <p>Please log in to use chat.</p>
-//           )
-//         }
-//         {this.state.loggedIn ? (
-//         <Chat messages={this.state.messages} user={this.state.from} onSend={this.sendMessage} onChat={this.joinChat} />
-//           ):(
-//           null
-//           )
-//         }
-//     </ul>
-// );
-
-// <li>
-//     <a href="#">Friends</a>
-//     <FriendList />
-// </li>
-
-// <PieChart
-//   data={this.state.data}
-//   width={220}
-//   height={200}
-//   radius={50}
-//   innerRadius={10}/>
-
-// <Treemap
-//   data={this.state.data}
-//   width={225}
-//   height={200}
-//   textColor="#484848"
-//   fontSize="12px"/>

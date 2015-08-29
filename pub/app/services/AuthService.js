@@ -67,7 +67,6 @@ var Auth = {
     createUser(username, password, firstname, lastname, function(res) {
         var authenticated = false;
         if (res.authenticated) {
-          console.log('signup and login successful!');
           authenticated = true;
         }
         if (callback) {

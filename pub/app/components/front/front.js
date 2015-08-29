@@ -43,7 +43,7 @@ var Front = React.createClass({
           ):(
           null
         )}
-        <Threads onAlert={this.showAlert}loggedIn={this.state.loggedIn}/>
+        <Threads onAlert={this.showAlert} loggedIn={this.state.loggedIn}/>
       </div>
     );
   }

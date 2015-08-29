@@ -59,7 +59,6 @@ var ProfileStore = assign({}, EventEmitter.prototype, {
   update: function(bio,avatar){
     var that = this;
     Profile.update(bio,avatar,function(data){
-      console.log('update successful');
       that.fetch();
     });
   },

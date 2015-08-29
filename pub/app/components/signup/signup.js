@@ -27,7 +27,6 @@ var Signup = React.createClass({
       loggedIn: AuthStore.loggedIn()
     });
     if(this.state.loggedIn){
-      // location.hash = '/';
       this.transitionTo("front");
     }
   },

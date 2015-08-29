@@ -17,7 +17,6 @@ var NewComment = React.createClass({
 
     this.props.onAddComment(body);
     React.findDOMNode(this.refs.body).value = '';
-
   },
 
   render: function() {

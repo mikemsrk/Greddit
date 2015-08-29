@@ -1,9 +1,5 @@
 var React = require('react');
 var Modal = require('react-modal');
-
-// var FriendButton = require('../friend/friendbutton');
-
-
 var appElement = document.getElementById('app');
 
 Modal.setAppElement(appElement);

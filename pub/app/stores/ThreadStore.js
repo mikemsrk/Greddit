@@ -143,11 +143,9 @@ AppDispatcher.register(function(payload){
       ThreadStore.add(action.data.title,action.data.body,action.data.link,action.data.tag,action.data.lat,action.data.lng);
       break;
     case ThreadConstants.EDIT:
-      // TODO: Updating a thread
       ThreadStore.edit(action.data.threadId,action.data.title,action.data.body,action.data.link,action.data.tag);
       break;
     case ThreadConstants.DELETE:
-      // TODO: Deleting a thread
       ThreadStore.delete(action.data.threadId);
       break;
     case ThreadConstants.UPVOTE:

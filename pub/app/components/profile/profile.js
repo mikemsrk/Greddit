@@ -13,7 +13,6 @@ var Profile = React.createClass({
 
   getInitialState: function(){
     if(!AuthStore.loggedIn()){
-      // location.hash = '/login';
       this.transitionTo("front");
     }
     return {

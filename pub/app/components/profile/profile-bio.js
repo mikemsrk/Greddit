@@ -1,7 +1,6 @@
 var React = require('react');
 
 var Bio = React.createClass({
-  // TODO: Incorporate Later when Auth is in.
 
   getInitialState: function(){
     return {
@@ -9,10 +8,7 @@ var Bio = React.createClass({
     };
   },
 
-  // TODO: Bubble this up to profile parent
   enableEdit: function(){
-    // make the bio field editable
-      // replace it with a form.
     this.setState({
       editing: true
     });
@@ -26,8 +22,6 @@ var Bio = React.createClass({
   },
 
   cancelEdit: function(){
-    // make the bio field editable
-      // replace it with a form.
     this.setState({
       editing: false
     });

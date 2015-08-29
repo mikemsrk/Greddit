@@ -3,9 +3,6 @@ var ThreadStore = require('../../stores/ThreadStore');
 var ThreadActions = require('../../actions/ThreadActions');
 var ThreadItem = require('./front-threaditem');
 
-// Front page threads
-// Fetch threads by rating by page
-
 var Threads = React.createClass({
   getInitialState: function(){
     return {
@@ -31,17 +28,11 @@ var Threads = React.createClass({
   },
 
   upVote: function(id){
-    // TODO: call thread action to upvote
     ThreadActions.upVote({thread_id:id});
   },
 
   downVote: function(id){
-    // TODO: call thread action to downvote
     ThreadActions.downVote({thread_id:id});
-  },
-
-  goThread: function(id){
-    console.log('transitioning to...thread',id);
   },
 
   showAlert: function(){
@@ -60,10 +51,10 @@ var Threads = React.createClass({
 
   nextPage: function(e){
     e.preventDefault();
-    // this.setState({
-    //   page: this.state.page+1
-    // });
-    // ThreadActions.fetchPage({page:this.state.page+1});
+    this.setState({
+      page: this.state.page+1
+    });
+    ThreadActions.fetchPage({page:this.state.page+1});
   },
 
   render: function() {

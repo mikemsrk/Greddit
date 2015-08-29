@@ -23,14 +23,6 @@ var MessageStore = assign({}, EventEmitter.prototype, {
     return _messages;
   },
 
-  fetchMessage: function(id){
-    var that = this;
-    // Message.fetchThread(id, function(data){
-    //   _message = data;
-    //   that.emitChange();
-    // });
-  },
-
   fetchPage: function(page){
     var that = this;
     Message.fetchPage(page, function(data){

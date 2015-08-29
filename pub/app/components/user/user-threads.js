@@ -4,7 +4,6 @@ var ThreadActions = require('../../actions/ThreadActions');
 var ProfileThreadItem = require('./user-threaditem');
 
 var BioThreads = React.createClass({
-  // TODO: Incorporate Later when Auth is in.
 
   getInitialState: function(){
     return {
@@ -14,7 +13,7 @@ var BioThreads = React.createClass({
   },
 
   componentDidMount: function(){
-    // TODO: Fetch User Page by ID
+    // Fetch User Page by ID
     ThreadActions.fetchOtherPage({id: this.props.id, page:this.state.page});
     ThreadStore.addChangeListener(this._onChange);
   },
@@ -24,7 +23,7 @@ var BioThreads = React.createClass({
   },
 
   _onChange: function(){
-    // TODO: Get User Threads by ID
+    // Get User Threads by ID
     this.setState({
       threads: ThreadStore.getOtherUserThreads().forumThreads
     });

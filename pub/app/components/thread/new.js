@@ -11,7 +11,6 @@ var NewThread = React.createClass({
 
   getInitialState: function(){
     if(!AuthStore.loggedIn()){
-      // location.hash = '/login';
       this.transitionTo('login');
     }
     return {
@@ -68,7 +67,7 @@ var NewThread = React.createClass({
 
   addThread: function(e){
     e.preventDefault();
-    // Send action to update user information
+    
     var title = React.findDOMNode(this.refs.title).value.trim();
     var body = React.findDOMNode(this.refs.body).value.trim();
     var link = React.findDOMNode(this.refs.link).value.trim();
@@ -85,6 +84,7 @@ var NewThread = React.createClass({
       lng = parseFloat(0);
     }
 
+    // Send action to update user information
     ThreadActions.add({
       title: title,
       body: body,
@@ -97,7 +97,6 @@ var NewThread = React.createClass({
   },
 
   _onChange: function(){
-    // location.hash = '/';
     this.transitionTo("front");
   },
 

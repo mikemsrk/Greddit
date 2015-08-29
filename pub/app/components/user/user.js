@@ -72,10 +72,6 @@ var User = React.createClass({
     });
   },
 
-  joinChat: function(){
-    // ChatActions.connect();
-  },
-
   sendMessage: function(msg){
     ChatActions.sendDm({ userId:this.state.user_id, message:msg });
   },

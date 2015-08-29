@@ -12,7 +12,7 @@ var ProfileActions = require('../../actions/ProfileActions');
 // Auth for login/logout change
 var AuthStore = require('../../stores/AuthStore');
 
-// Relative Time
+// Relative Time formatting
 var ReactIntl = require('react-intl');
 var FormattedRelative = ReactIntl.FormattedRelative;
 var FormattedDate = ReactIntl.FormattedDate;
@@ -32,7 +32,6 @@ var formatDate = function(str){
 
 
 var Thread = React.createClass({
-  // mixins: [React.addons.LinkedStateMixin],
   mixins : [Router.Navigation],
 
   getInitialState: function(){
@@ -135,8 +134,8 @@ var Thread = React.createClass({
     this.setState({
       editMode:true
     });
-    // Set the input fields to the fetched values
 
+    // Set the input fields to the fetched values
     var that = this;
     setTimeout(function(){
       React.findDOMNode(that.refs.title).value = that.state.title;
@@ -152,7 +151,7 @@ var Thread = React.createClass({
     this.setState({
       editMode:false
     });
-    // TODO: Send PUT request with all info.
+    
     ThreadActions.edit({
       threadId: this.state.id,
       title: React.findDOMNode(this.refs.title).value.trim(),
@@ -173,18 +172,17 @@ var Thread = React.createClass({
 
   deleteThread: function(e){
     e.preventDefault();
-    // TODO: Send DELETE request for this thread.
-    // TODO: Redirect to front page
+
     ThreadActions.delete({
       threadId: this.state.id
     });
-    // location.hash = '/';
+
     this.transitionTo("front");
   },
 
   upVote: function(e){
     e.preventDefault();
-    // TODO: call thread action to upvote
+
     if(this.state.voted <= 0){
       ThreadActions.upVote({thread_id:this.props.params.id});
       this.setState({
@@ -196,7 +194,7 @@ var Thread = React.createClass({
 
   downVote: function(e){
     e.preventDefault();
-    // TODO: call thread action to downvote
+    
     // Disable voting when already voted
     if(this.state.voted >= 0){
       ThreadActions.downVote({thread_id:this.props.params.id});

@@ -1,15 +1,9 @@
 var React = require('react');
 var Router = require('react-router');
 var Modal = require('react-modal');
-
 var appElement = document.getElementById('app');
-Modal.setAppElement(appElement);
-Modal.injectCSS();
-
 var AuthActions = require('../../actions/AuthActions');
 var AuthStore = require('../../stores/AuthStore');
-// Placing direct chat listeners on nav bar
-// Ideally it would be inside App component
 var ChatStore = require('../../stores/ChatStore');
 var ChatActions = require('../../actions/ChatActions');
 var ChatBox = require('./navbar-chatbox');
@@ -17,7 +11,8 @@ var ChatBox = require('./navbar-chatbox');
 var ThreadActions = require('../../actions/ThreadActions');
 var Link = Router.Link;
 
-// TODO - factor out navbar login form
+Modal.setAppElement(appElement);
+Modal.injectCSS();
 
 var Navbar = React.createClass({
 
@@ -204,18 +199,3 @@ var Navbar = React.createClass({
 });
 
 module.exports = Navbar;
-
-// Dropdown Menu for Future implementation
-
-// <li className="dropdown">
-//   <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span className="caret"></span></a>
-//   <ul className="dropdown-menu">
-//     <li><a href="#">Action</a></li>
-//     <li><a href="#">Another action</a></li>
-//     <li><a href="#">Something else here</a></li>
-//     <li role="separator" className="divider"></li>
-//     <li><a href="#">Separated link</a></li>
-//     <li role="separator" className="divider"></li>
-//     <li><a href="#">One more separated link</a></li>
-//   </ul>
-// </li>
