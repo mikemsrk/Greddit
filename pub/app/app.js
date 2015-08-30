@@ -21,22 +21,6 @@ var Navigation = Router.Navigation;
 var Link = Router.Link;
 
 var App = React.createClass({
-
-  getInitialState: function(){
-    return {
-      // loggedIn: Auth.loggedIn()
-    };
-  },
-
-  setStateOnAuth: function(loggedIn){
-    // this.setState({
-    //   loggedIn: loggedIn
-    // });
-  },
-
-  componentWillMount: function(){
-    // Auth.onChange = this.setStateOnAuth;
-  },
   
   render: function(){
     return (
@@ -55,7 +39,7 @@ var App = React.createClass({
   }
 });
 
-// TODO: Setup thread routes
+// TODO: Fix Geo and Front handler names.
 var routes = (
   <Route path="/" handler={App}>
     <DefaultRoute handler={Geo}/>
